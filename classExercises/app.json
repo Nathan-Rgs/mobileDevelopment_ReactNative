@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "classExercises",
+    "slug": "classExercises",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
