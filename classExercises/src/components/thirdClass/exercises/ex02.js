@@ -28,22 +28,21 @@ function App() {
   };
 
   return (
-    <View style={styles.formStyle}>
+    <View style={styles.cardStyle}>
       <Text> Exercício 2: </Text>
       <Text>{erro}</Text>
       <FlatList
         data={dados}
         keyExtractor={(item) => item.id}
         numColumns={2}
-        style={styles.animalFlatList}
         renderItem={({ item }) => {
           return (
-            <View>
+            <View style={styles.viewAnimalFlatList}>
               <Image
                 source={{ uri: item.image_link }}
                 style={styles.animalImg}
               ></Image>
-              <Text>{item.name}</Text>
+              <Text style={styles.animalName}>{item.name}</Text>
             </View>
           );
         }}
@@ -55,23 +54,25 @@ function App() {
 export default App;
 
 const styles = StyleSheet.create({
-  formStyle: {
-    marginTop: 75,
+  cardStyle: {
+    marginVertical: 40,
+    padding: 20,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    gap: 10,
-    width: 300,
+    flex: 1,
     margin: "auto",
     borderRadius: 10,
     backgroundColor: "white",
   },
-  animalFlatList: {
-    flexWrap: "wrap",
-    gap: 10,
+  viewAnimalFlatList: {
+    padding: 5,
   },
   animalImg: {
-    width: 150,
-    height: 150,
+    width: 100,
+    height: 100,
+  },
+  animalName: {
+    width: 100,
   },
 });

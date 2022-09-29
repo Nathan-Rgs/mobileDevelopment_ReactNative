@@ -33,7 +33,7 @@ export default function App() {
   };
 
   return (
-    <View style={styles.formStyle}>
+    <View style={styles.cardStyle}>
       <Text> Formulário: </Text>
       <TextInput
         label={"Nome"}
@@ -74,14 +74,15 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  formStyle: {
+  cardStyle: {
+    marginVertical: 35,
+    padding: 20,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    gap: "1rem",
-    width: 50%,
+    flex: 1,
     margin: "auto",
-    borderRadius: 1,
+    borderRadius: 10,
     backgroundColor: "white",
   },
 });
