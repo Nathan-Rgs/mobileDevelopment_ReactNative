@@ -1,10 +1,15 @@
 {
   "expo": {
-    "name": "classExercises",
-    "slug": "classExercises",
+    "name": "Mobile Development Studies",
+    "slug": "mobile",
     "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+    "orientation": "portrait",
+    "icon": "./assets/facensLogo.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/facensLogo.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#45fd"
+    }
   }
 }

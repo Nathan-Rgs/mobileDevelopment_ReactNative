@@ -1,26 +1,38 @@
-import Ex01 from "./src/components/thirdClass/exercises/ex02";
-import { StyleSheet, Text } from "react-native";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import { StatusBar, StyleSheet, Text } from "react-native";
+import {
+  useFonts,
+  Inter_400Regular,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  Inter_900Black,
+} from "@expo-google-fonts/inter";
+
+import { Background } from "./src/components/Background";
+import { Loading } from "./src/components/Loading";
+import Ex01 from "./src/components/Exercises/thirdClass/exercises/ex02";
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    Inter_400Regular,
+    Inter_600SemiBold,
+    Inter_700Bold,
+    Inter_900Black,
+  });
+
   return (
-    <SafeAreaProvider style={styles.backgroundStyle}>
-      <Ex01></Ex01>
+    <Background>
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor="transparent"
+        translucent
+      ></StatusBar>
+      {fontsLoaded ? <Ex01 /> : <Loading />}
       <Text style={styles.signature}>Made by: Nathan Roberto</Text>
-    </SafeAreaProvider>
+    </Background>
   );
 }
 
 const styles = StyleSheet.create({
-  backgroundStyle: {
-    backgroundColor: "#45fd",
-    display: "flex",
-    flex: 1,
-    height: "auto",
-    alignItems: "center",
-    justifyContent: "center",
-    flexDirection: "column",
-  },
   signature: {
     color: "white",
     alignSelf: "flex-end",
