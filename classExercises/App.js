@@ -9,7 +9,7 @@ import {
 
 import { Background } from "./src/components/Background";
 import { Loading } from "./src/components/Loading";
-import Ex01 from "./src/components/Exercises/thirdClass/exercises/ex02";
+import Ex01 from "./src/components/Exercises/thirdClass/exercises/Ex01";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
