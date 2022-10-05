@@ -14,13 +14,17 @@ import {
   FlatList,
   Text,
   Image,
+  Pressable,
 } from "react-native";
 import { useForm } from "react-hook-form";
 
 import logoImg from "../../../../assets/facensLogo.png";
-import { THEME } from "../../../../theme";
+import ArrowLeft from "../../../../assets/ArrowLeft";
 
-export default function Ex01() {
+import { THEME } from "../../../../theme";
+import { Background } from "../../../Background";
+
+export default function Ex01(props) {
   const component = {};
   component.name = "Ex01";
 
@@ -40,52 +44,63 @@ export default function Ex01() {
   };
 
   return (
-    <View style={styles.cardStyle}>
-      <Image source={logoImg} style={styles.logo} />
-      <Text style={styles.title}> {component.name}: </Text>
-      <View style={styles.formView}>
-        <View style={styles.inputsView}>
-          <TextInput
-            style={styles.inputs}
-            label={"Nome"}
-            placeholder={"Digite seu nome"}
-            onChangeText={(text) => setValue("name", text)}
-          />
-          <TextInput
-            style={styles.inputs}
-            label={"Endereço"}
-            placeholder={"Digite seu endereço"}
-            onChangeText={(text) => setValue("adress", text)}
-          />
-          <TextInput
-            style={styles.inputs}
-            label={"Email"}
-            placeholder={"Digite seu email"}
-            onChangeText={(text) => setValue("email", text)}
-          />
-          <TextInput
-            style={styles.inputs}
-            label={"Telephone"}
-            placeholder={"Digite seu phone"}
-            onChangeText={(text) => setValue("phone", text)}
-          />
-        </View>
-        <Button onPress={handleSubmit(onSubmit)} title={"Enviar"} />
-      </View>
+    <Background>
+      <View style={styles.cardStyle}>
+        <Pressable
+          onPress={() => {
+            props.navigation.pop();
+          }}
+        >
+          <ArrowLeft />
+        </Pressable>
 
-      <FlatList
-        data={cadastros}
-        renderItem={({ item }) => (
-          <View>
-            <Text>Nome: {item.name}</Text>
-            <Text>Endereço: {item.adress}</Text>
-            <Text>Phone: {item.phone}</Text>
-            <Text>Email: {item.email}</Text>
-            <Text></Text>
+        <Image source={logoImg} style={styles.logo} />
+        <Text style={styles.title}> {component.name}: </Text>
+
+        <View style={styles.formView}>
+          <View style={styles.inputsView}>
+            <TextInput
+              style={styles.inputs}
+              label={"Nome"}
+              placeholder={"Digite seu nome"}
+              onChangeText={(text) => setValue("name", text)}
+            />
+            <TextInput
+              style={styles.inputs}
+              label={"Endereço"}
+              placeholder={"Digite seu endereço"}
+              onChangeText={(text) => setValue("adress", text)}
+            />
+            <TextInput
+              style={styles.inputs}
+              label={"Email"}
+              placeholder={"Digite seu email"}
+              onChangeText={(text) => setValue("email", text)}
+            />
+            <TextInput
+              style={styles.inputs}
+              label={"Telephone"}
+              placeholder={"Digite seu phone"}
+              onChangeText={(text) => setValue("phone", text)}
+            />
           </View>
-        )}
-      />
-    </View>
+          <Button onPress={handleSubmit(onSubmit)} title={"Enviar"} />
+        </View>
+
+        <FlatList
+          data={cadastros}
+          renderItem={({ item }) => (
+            <View>
+              <Text>Nome: {item.name}</Text>
+              <Text>Endereço: {item.adress}</Text>
+              <Text>Phone: {item.phone}</Text>
+              <Text>Email: {item.email}</Text>
+              <Text></Text>
+            </View>
+          )}
+        />
+      </View>
+    </Background>
   );
 }
 

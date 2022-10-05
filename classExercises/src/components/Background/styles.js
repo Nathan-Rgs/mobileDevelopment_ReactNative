@@ -7,5 +7,6 @@ export const styles = StyleSheet.create({
     backgroundColor: THEME.COLORS.BACKGROUND_800,
     justifyContent: "center",
     alignItems: "center",
+    ...StyleSheet.absoluteFill,
   },
 });
