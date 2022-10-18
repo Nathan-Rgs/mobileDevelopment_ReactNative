@@ -1,4 +1,4 @@
-import { StatusBar, StyleSheet } from "react-native";
+import { StatusBar } from "react-native";
 import {
   useFonts,
   Inter_400Regular,
@@ -8,7 +8,7 @@ import {
 } from "@expo-google-fonts/inter";
 
 import { Loading } from "./src/components/Loading";
-import Ex03 from "./src/components/Exercises/thirdClass/exercises/Ex04/Ex04";
+import Ex04 from "./src/components/Exercises/thirdClass/exercises/Ex04/Ex04";
 import { NavigationContainer } from "@react-navigation/native";
 
 export default function App() {
@@ -26,15 +26,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       ></StatusBar>
-      {fontsLoaded ? <Ex03 /> : <Loading />}
+      {fontsLoaded ? <Ex04 /> : <Loading />}
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  signature: {
-    color: "white",
-    alignSelf: "flex-end",
-    marginRight: 5,
-  },
-});

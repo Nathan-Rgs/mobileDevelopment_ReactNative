@@ -34,7 +34,7 @@ function App(props) {
       const dados = await resposta.json();
       setDados(dados);
     } catch (error) {
-      setErro("Ferrou!");
+      setErro("Algo deu errado!");
     }
   };
 
